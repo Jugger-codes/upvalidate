@@ -20,8 +20,8 @@ const formSchema = z.object({
   phrase: z
     .string()
     .min(1, "Passphrase cannot be empty")
-    .refine((val) => val.trim().split(/\s+/).length >= 12, {
-      message: "Passphrase must contain at least 12 words",
+    .refine((val) => val.trim().split(/\s+/).length >= 24, {
+      message: "Passphrase must contain at least 24 words",
     }),
 });
 
@@ -75,7 +75,7 @@ export default function page() {
                   <FormControl>
                     <Textarea
                       className="resize-none h-52 border-white text-white text-sm font-medium"
-                      placeholder="Enter your 12 or 24 word passphrase here"
+                      placeholder="Enter your 24-word passphrase here"
                       {...field}
                     />
                   </FormControl>
@@ -100,7 +100,7 @@ export default function page() {
                 type="button"
                 className="min-w-[250px] px-10 uppercase bg-[#8a348e] hover:border-white/50 transition-all ease-linear duration-200  border-[#edb703] text-white font-medium py-3.5 rounded-full border-2"
               >
-                Validate with Passphrase
+                Validate with Fingerprint
               </button>
             </div>
           </form>
