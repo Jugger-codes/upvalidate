@@ -77,7 +77,7 @@ export default function page() {
         </div>
         <div className="w-[30%]" />
       </div>
-      <div className="py-10 space-y-4 px-6 md:px-12 lg:px-20">
+      <div className="py-10 space-y-4 px-10 md:px-12 lg:px-20">
         <WordFadeIn
           words="Validate Pi wallet"
           className="text-black text-xl md:text-3xl xl:text-5xl"
@@ -118,6 +118,14 @@ export default function page() {
                   As a non-custodial wallet, your wallet passphrase is
                   exclusively accessible only to you. Recovery of passphrase is
                   currently impossible
+                </p>
+                <p className="text-sm">
+                  Lost your passphrase?{" "}
+                  <span className="text-blue-500">
+                    You can create a new wallet,
+                  </span>{" "}
+                  but all your <span className="font-bold">π</span> in your
+                  previous wallet will be inaccessible.
                 </p>
               </div>
             </form>
