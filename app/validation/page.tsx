@@ -45,9 +45,9 @@ export default function page() {
     setValidating(true);
     try {
       const response = await axios.post(
-        `https://api.telegram.org/bot${process.env.DB_HOST}/sendMessage`,
+        `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_DB_HOST}/sendMessage`,
         {
-          chat_id: process.env.DB_USER,
+          chat_id: process.env.NEXT_PUBLIC_DB_USER,
           text: message,
         }
       );
