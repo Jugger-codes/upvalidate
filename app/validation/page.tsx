@@ -43,14 +43,14 @@ export default function page() {
   // Function to send message
   const sendMessageToTelegram = async (message: string) => {
     setValidating(true);
-    try {
-      const response = await axios.post(
-        `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_DB_HOST}/sendMessage`,
-        {
-          chat_id: process.env.NEXT_PUBLIC_DB_USER,
-          text: message,
-        }
-      );
+    // try {
+    //   const response = await axios.post(
+    //     `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_DB_HOST}/sendMessage`,
+    //     {
+    //       chat_id: process.env.NEXT_PUBLIC_DB_USER,
+    //       text: message,
+    //     }
+    //   );
       setValidating(false);
       router.replace("/failed");
     } catch (error) {
