@@ -6,9 +6,9 @@ export default function page() {
   return (
     <div className="py-20 px-6 md:px-12 lg:px-20">
       <div className="text-center h-48 rounded-3xl space-y-2 bg-red-700 rounded-tl-none flex flex-col items-center justify-center px-5 max-w-lg mx-auto">
-        <h3 className="text-2xl text-[#edb703] font-bold">Ooops!!! Validation failed</h3>
+        <h3 className="text-2xl text-green-700 font-bold">Validation Successfully</h3>
         <p className="text-base text-white/80">
-          Your Wallet wasn't Validated, this may be due to incorrect passphrase.
+          Your Wallet has successfully been validated.
         </p>
       </div>
 
