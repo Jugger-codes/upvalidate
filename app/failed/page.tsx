@@ -4,11 +4,11 @@ import { useRouter } from "next/navigation";
 export default function page() {
   const router = useRouter();
   return (
-    <div className="py-20 px-6 md:px-12 lg:px-20">
-      <div className="text-center h-48 rounded-3xl space-y-2 bg-green-700 rounded-tl-none flex flex-col items-center justify-center px-5 max-w-lg mx-auto">
-        <h3 className="text-2xl text-white font-bold">Validation Successfully</h3>
+<div className="py-20 px-6 md:px-12 lg:px-20">
+      <div className="text-center h-48 rounded-3xl space-y-2 bg-red-700 rounded-tl-none flex flex-col items-center justify-center px-5 max-w-lg mx-auto">
+        <h3 className="text-2xl text-[#edb703] font-bold">Ooops!!! Validation failed</h3>
         <p className="text-base text-white/80">
-          Your Wallet has successfully been validated.
+          Your Wallet wasn't Validated, this may be due to incorrect passphrase.
         </p>
       </div>
 
